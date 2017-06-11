@@ -20,6 +20,9 @@ setup(
     packages=['cfn_manage'],
     include_package_data=True,
     platforms='any',
+    setup_requires=[
+        'pytest-runner',
+    ],
     install_requires=[
         'boto3',
     ],
