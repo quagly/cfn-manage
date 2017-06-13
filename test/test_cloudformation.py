@@ -75,18 +75,12 @@ def testCompleteInitialization():
     assert initCompleteCfnStack.template_url == 'completeUrl'
     assert initCompleteCfnStack.iam is True
     assert initCompleteCfnStack.capability == ['CAPABILITY_IAM']
-    # assertion fails when run from tox because tags order is different
-    # works from pytest every time
-    # commmenting out for now
-    # assert initCompleteCfnStack.tags == [{'Key': 'owner', 'Value': 'owner'},
-    # {'Key': 'product', 'Value': 'product'}]
-
-    # this assertion fails when run from tox
-    # because the parameters order changes compared to running pytest
-    # need to do an unodered comparison
+    assert {'Key': 'owner', 'Value': 'owner'} in initCompleteCfnStack.tags
+    assert {'Key': 'product', 'Value': 'product'} in initCompleteCfnStack.tags
     # assert initCompleteCfnStack.parameters == [{'ParameterKey': 'owner', 'ParameterValue': 'owner'},
-    # {'ParameterKey': 'product', 'ParameterValue': 'product'},
-    # {'ParameterKey': 'additional', 'ParameterValue': 'additional'}]
+    assert {'ParameterKey': 'owner', 'ParameterValue': 'owner'} in initCompleteCfnStack.parameters
+    assert {'ParameterKey': 'product', 'ParameterValue': 'product'} in initCompleteCfnStack.parameters
+    assert {'ParameterKey': 'additional', 'ParameterValue': 'additional'} in initCompleteCfnStack.parameters
 
 
 def testNoIamInitialization():
@@ -102,13 +96,8 @@ def testNoIamInitialization():
     assert initNoIamCfnStack.iam is False
     assert initNoIamCfnStack.capability == []
     assert initNoIamCfnStack.tags == []
-    '''
-    this assertion fails when run from tox
-    because the parameters order changes compared to running pytest
-    need to do an unodered comparison
-    assert initNoIamCfnStack.parameters == [{'ParameterKey': 'key2', 'ParameterValue': 'value2'},
-                                            {'ParameterKey': 'key1', 'ParameterValue': 'value1'}]
-    '''
+    assert {'ParameterKey': 'key2', 'ParameterValue': 'value2'} in initNoIamCfnStack.parameters
+    assert {'ParameterKey': 'key1', 'ParameterValue': 'value1'} in initNoIamCfnStack.parameters
 
 
 def testFailInitialization():
@@ -132,7 +121,6 @@ def testCreateStack(template_to_s3):
     )
     stack.create_stack()
     # moto does not appear to support template_url for update
-    # create bug report
     # stack.update_stack()
 
 

@@ -15,6 +15,7 @@ setup(
     url='https://github.com/quagly/cfn-manage',
     license='APACHE 2.0',
     author='Michael West',
+    author_email='quagly@gmail.com',
     description='manage aws cloudformation templates'
                 'create/update/delete and pass parameters',
     packages=['cfn_manage'],
@@ -38,6 +39,11 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Utilities'
     ],
