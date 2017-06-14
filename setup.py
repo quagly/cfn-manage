@@ -9,6 +9,8 @@ pass parameters
 '''
 from setuptools import setup
 
+# I think it is bad practice to name the package with - but module with _.
+# I suspect this is why I cannot reference cfn-manage.__version__ in this script
 setup(
     name='cfn-manage',
     version='0.1.0',
@@ -27,8 +29,17 @@ setup(
     install_requires=[
         'boto3',
     ],
+    extras_require={
+        'dev': [
+            'pytest>=3',
+            'coverage',
+            'tox',
+            'sphinx',
+            'moto',
+        ],
+    },
     tests_require=[
-        'pytest',
+        'pytest>=3',
         'moto'
     ],
     classifiers=[

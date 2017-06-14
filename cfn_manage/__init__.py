@@ -5,3 +5,4 @@
     pass parameters
     enforce personal configuration conventions
 '''
+__version__ = '0.1.0'
