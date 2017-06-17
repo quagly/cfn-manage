@@ -23,9 +23,9 @@ class CfnStack:
     Attributes:
 
         name (str): Stack name
-        template_url: (str): location of template
+        template_url (str): location of template
         iam (boolean): does this stack effect permissions?
-        tags (list if dicts): tags for stack
+        tags (list of dicts): tags for stack
         capability (list): iam capabilities stack requires
         parameters (list of dicts): Parameters and Values to pass to the cloudformation stack
         create_response (dict): response from calling create stack
