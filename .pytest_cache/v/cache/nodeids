@@ -1,0 +1,9 @@
+[
+  "test/test_cloudformation.py::testSimpleInitialization",
+  "test/test_cloudformation.py::testCompleteInitialization",
+  "test/test_cloudformation.py::testNoIamInitialization",
+  "test/test_cloudformation.py::testFailInitialization",
+  "test/test_cloudformation.py::testCreateStack",
+  "test/test_cloudformation.py::testUpdateStack",
+  "test/test_cloudformation.py::testDeleteStack"
+]
